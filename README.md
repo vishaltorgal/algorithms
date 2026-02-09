@@ -22,6 +22,8 @@
 ## 1. **Linear Search**
 Check each element one by one until you find the target.
 
+<img width="316" height="99" alt="image" src="https://github.com/user-attachments/assets/79935473-3423-480f-afac-08fe1b397c1a" />
+
 ***Example***
 ```jsx
 const arr = [5, 10, 20, 30];
