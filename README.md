@@ -55,6 +55,8 @@ Binary search finds an element by dividing the search space in half each time.
 
 Array must be sorted
 
+<img width="1010" height="448" alt="image" src="https://github.com/user-attachments/assets/082ab5de-4011-4b2a-910e-7b2fd729c9f8" />
+
 ***Example***
 ```jsx
 const arr = [5, 10, 20, 30, 40];
@@ -105,6 +107,8 @@ while (left <= right) {
 
 Bubble sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.
 Bigger values slowly bubble to the end.
+
+<img width="150" height="217" alt="image" src="https://github.com/user-attachments/assets/6d916425-78eb-4596-b15d-9cad002f4915" />
 
 ***Bubble Sort code***
 ```jsx
@@ -161,6 +165,10 @@ console.log(arr);
 - Sorting happens in place
 
 ## 4. **Merge Sort**
+
+The ***Merge Sort*** algorithm is a divide-and-conquer algorithm that sorts an array by first breaking it down into smaller arrays, and then building the array back together.
+
+<img width="244" height="236" alt="image" src="https://github.com/user-attachments/assets/3af48292-8bed-4603-b5a8-495828842a3f" />
 
 ```jsx
 function mergeSort(arr) {
