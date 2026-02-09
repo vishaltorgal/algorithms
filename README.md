@@ -161,3 +161,108 @@ console.log(arr);
 - Sorting happens in place
 
 ## 4. **Merge Sort**
+
+```jsx
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+
+  while (i < left.length) {
+    result.push(left[i]);
+    i++;
+  }
+
+  while (j < right.length) {
+    result.push(right[j]);
+    j++;
+  }
+
+  return result;
+}
+
+// Example
+console.log(mergeSort([4,2,1,3]));
+//[ 1, 2, 3, 4 ]
+```
+
+***Visual summary 1***
+```jsx
+[4,2,1,3]
+   ↓
+[4,2]   [1,3]
+ ↓  ↓    ↓  ↓
+[4][2]  [1][3]
+
+Merge back →
+[2,4]   [1,3]
+      ↓
+[1,2,3,4]
+```
+***Visual summary 2***
+```jsx
+mergeSort([4,2,1,3])
+ ├─ mergeSort([4,2])  → [2,4]
+ ├─ mergeSort([1,3])  → [1,3]
+ └─ merge([2,4], [1,3]) → [1,2,3,4]
+
+```
+***Visual summary 3***
+```jsx
+mergeSort([4,2,1,3])
+ ├─ mergeSort([4,2])
+ │   ├─ mergeSort([4])
+ │   │   → return [4]
+ │   └─ mergeSort([2])
+ │       → return [2]
+ │   → merge([4], [2]) = [2,4]
+ │
+ └─ mergeSort([1,3])
+     ├─ mergeSort([1])
+     │   → return [1]
+     └─ mergeSort([3])
+         → return [3]
+     → merge([1], [3]) = [1,3]
+
+ → merge([2,4], [1,3]) = [1,2,3,4]
+
+```
+
+***Time Complexity***
+
+- Best case
+- O(n log n)
+
+- Average case
+- O(n log n)
+
+- Worst case
+- O(n log n)
+
+- Very reliable.
+
+***Space Complexity***
+
+- O(n)
+  
+- Needs extra space for merging.
