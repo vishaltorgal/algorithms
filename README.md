@@ -312,3 +312,121 @@ function quickSort(arr) {
 ***Space Complexity***
 - Extra arrays + recursion
 - O(n)
+
+## 6. **Two Pointers**
+
+***Two Pointers idea*** - Use two indexes instead of one to solve problems faster.
+
+<img width="304" height="110" alt="image" src="https://github.com/user-attachments/assets/a147dc75-f0fe-4066-871e-5164005e0cab" />
+
+### Example 1: Check if array has a pair with sum = 10
+
+```jsx
+const arr = [1, 2, 3, 4, 6, 8];
+const target = 10;
+```
+***Code***
+
+```jsx
+function hasPair(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === target) return true;
+    if (sum < target) left++;
+    else right--;
+  }
+
+  return false;
+}
+```
+
+### Example 2: Reverse an array
+
+```jsx
+[1, 2, 3, 4]
+```
+***Code***
+
+```jsx
+function reverseArray(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+
+  return arr;
+}
+
+```
+
+### Example 3: Check palindrome string
+
+```jsx
+"madam"
+```
+***Code***
+
+```jsx
+function isPalindrome(str) {
+  let left = 0;
+  let right = str.length - 1;
+
+  while (left < right) {
+    if (str[left] !== str[right]) return false;
+    left++;
+    right--;
+  }
+
+  return true;
+}
+```
+### Example 4: Remove duplicates from a sorted array
+
+```jsx
+[1, 1, 2, 2, 3, 4, 4]
+```
+***Code***
+```jsx
+function removeDuplicates(arr) {
+  if (arr.length === 0) return [];
+
+  let slow = 0;
+
+  for (let fast = 1; fast < arr.length; fast++) {
+    if (arr[fast] !== arr[slow]) {
+      slow++;
+      arr[slow] = arr[fast];
+    }
+  }
+
+  return arr.slice(0, slow + 1);
+}
+
+removeDuplicates([1,1,2,2,3,4,4])
+// [1, 2, 3, 4]
+```
+***When to use Two Pointers***
+
+- Sorted array
+- Pair problems
+- Reverse problems
+- Palindrome
+- Remove duplicates
+
+***Time Complexity***
+
+- O(n)
+- (one loop, no nested loops)
+
+***Space Complexity***
+
+- O(1)
+- (no extra memory)
