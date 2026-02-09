@@ -272,5 +272,32 @@ mergeSort([4,2,1,3])
 ***Space Complexity***
 
 - O(n)
-  
 - Needs extra space for merging.
+
+## 5. **Quick Sort**
+
+Pick one number → put smaller numbers on left → bigger on right → repeat.
+
+<img width="571" height="421" alt="image" src="https://github.com/user-attachments/assets/849eed6c-33af-4656-9d35-ac7685aafb06" />
+
+```jsx
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) left.push(arr[i]);
+    else right.push(arr[i]);
+  }
+
+  return [
+    ...quickSort(left),
+    pivot,
+    ...quickSort(right)
+  ];
+}
+
+```
