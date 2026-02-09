@@ -301,3 +301,12 @@ function quickSort(arr) {
 }
 
 ```
+
+***Time Complexity***
+- Best case: O(n log n)
+- Average case: O(n log n)
+- Worst case (bad pivot): O(n²)
+
+***Space Complexity***
+- Extra arrays + recursion
+- O(n)
